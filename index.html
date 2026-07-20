@@ -3,14 +3,1120 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Site Unavailable</title>
-<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Sameena Gill, PE, MBA — Technical Project Manager</title>
+<meta name="description" content="Technical Project Manager specializing in mission-critical infrastructure, data center and facility construction. California PE, MBA, 10+ years experience.">
+<meta name="robots" content="noarchive">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231B3A5C'/><text x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='bold' fill='white' text-anchor='middle'>SG</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  body { font-family: -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f5f5f5; color: #333; }
-  p { font-size: 1.1rem; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #1B3A5C;
+  --navy-light: #234b73;
+  --steel: #4A7C9B;
+  --steel-light: #6a9ab8;
+  --dark: #1A1A1A;
+  --gray: #555555;
+  --gray-light: #888888;
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --grid-line: #E8EDF2;
+
+  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  --text-hero: clamp(2.5rem, 1rem + 5vw, 4.5rem);
+  --text-h2: clamp(1.8rem, 1rem + 2.5vw, 2.8rem);
+  --text-h3: clamp(1.1rem, 0.9rem + 0.8vw, 1.4rem);
+  --text-body: clamp(0.95rem, 0.88rem + 0.3vw, 1.05rem);
+  --text-small: 0.875rem;
+
+  --space-section: clamp(2.5rem, 2rem + 2vw, 4rem);
+  --space-lg: clamp(1.25rem, 1rem + 1vw, 2rem);
+  --space-md: clamp(0.75rem, 0.6rem + 0.5vw, 1rem);
+
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 3px rgba(27,58,92,0.08);
+  --shadow-md: 0 4px 16px rgba(27,58,92,0.1);
+  --shadow-lg: 0 8px 32px rgba(27,58,92,0.12);
+  --shadow-hover: 0 12px 40px rgba(27,58,92,0.16);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration: 300ms;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--dark);
+  background: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { color: var(--navy); text-decoration: none; transition: color var(--duration) var(--ease-out); }
+a:hover { color: var(--steel); }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 1rem + 2vw, 2rem);
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 0;
+  transition: background var(--duration), box-shadow var(--duration), padding var(--duration);
+}
+
+.nav.scrolled {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  padding: 0.6rem 0;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+}
+
+.nav:not(.scrolled) .nav-logo { color: var(--surface); }
+.nav.scrolled .nav-logo { color: var(--navy); }
+
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+
+.nav-links a {
+  font-size: var(--text-small);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color var(--duration);
+}
+
+.nav:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.85); }
+.nav:not(.scrolled) .nav-links a:hover { color: #fff; }
+.nav.scrolled .nav-links a { color: var(--gray); }
+.nav.scrolled .nav-links a:hover { color: var(--navy); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  transition: transform var(--duration), opacity var(--duration);
+}
+
+.nav:not(.scrolled) .nav-toggle span { background: #fff; }
+.nav.scrolled .nav-toggle span { background: var(--navy); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, var(--steel) 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 80%;
+  height: 200%;
+  background: radial-gradient(ellipse, rgba(74,124,155,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-lg);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text { color: #fff; }
+
+.hero-badges {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: var(--text-hero);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 0.85rem + 0.5vw, 1.2rem);
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 0.4rem;
+}
+
+.hero-location {
+  font-size: var(--text-small);
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 2rem;
+}
+
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+  transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out), background var(--duration);
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+  background: #fff;
+  color: var(--navy);
+  box-shadow: var(--shadow-md);
+}
+.btn-primary:hover { box-shadow: var(--shadow-hover); color: var(--navy); }
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.btn-outline:hover { border-color: #fff; color: #fff; }
+
+.btn-navy {
+  background: var(--navy);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.btn-navy:hover { background: var(--navy-light); color: #fff; box-shadow: var(--shadow-hover); }
+
+.hero-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-photo img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+/* ===== SECTION COMMON ===== */
+section { padding: var(--space-section) 0; }
+
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  color: var(--navy);
+  margin-bottom: var(--space-md);
+  line-height: 1.2;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--steel);
+  border-radius: 2px;
+  margin-bottom: var(--space-lg);
+}
+
+/* ===== ABOUT ===== */
+.about { background: var(--surface); }
+
+.about-summary {
+  max-width: 800px;
+  font-size: var(--text-body);
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.stat-card {
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--grid-line);
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: var(--text-small);
+  color: var(--gray);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* ===== PROJECTS ===== */
+.projects { background: var(--bg); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.project-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  border: 1px solid var(--grid-line);
+  transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.project-role {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+  background: rgba(74,124,155,0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  margin-bottom: 0.75rem;
+}
+
+.project-metric {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem);
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.project-name {
+  font-weight: 700;
+  font-size: var(--text-body);
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.project-desc {
+  font-size: var(--text-small);
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* ===== COMPETENCIES ===== */
+.competencies { background: var(--surface); }
+
+.competencies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.competency-group h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.competency-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.competency-tag {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--grid-line);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--gray);
+  transition: border-color var(--duration), color var(--duration), background var(--duration);
+}
+
+.competency-tag:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+  background: rgba(27,58,92,0.04);
+}
+
+/* ===== TIMELINE ===== */
+.timeline-section { background: var(--bg); }
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--grid-line);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) { justify-content: flex-start; padding-right: calc(50% + 2rem); }
+.timeline-item:nth-child(even) { justify-content: flex-end; padding-left: calc(50% + 2rem); }
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 0.5rem;
+  width: 14px;
+  height: 14px;
+  background: var(--navy);
+  border: 3px solid var(--surface);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+}
+
+.timeline-content {
+  background: var(--surface);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--grid-line);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.timeline-date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 0.3rem;
+}
+
+.timeline-role {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark);
+  margin-bottom: 0.15rem;
+}
+
+.timeline-company {
+  font-size: var(--text-small);
+  color: var(--gray);
+}
+
+/* ===== EDUCATION ===== */
+.education { background: var(--surface); }
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.credential-card {
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--grid-line);
+}
+
+.credential-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(27,58,92,0.08);
+  border-radius: 50%;
+}
+
+.credential-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--navy);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.credential-name {
+  font-weight: 700;
+  font-size: var(--text-body);
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.credential-detail {
+  font-size: var(--text-small);
+  color: var(--gray);
+}
+
+/* ===== CONTACT ===== */
+.contact { background: var(--bg); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.contact-info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: var(--space-md);
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--text-body);
+}
+
+.contact-info-item svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--navy);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.contact-info-item a { color: var(--dark); font-weight: 500; }
+.contact-info-item a:hover { color: var(--steel); }
+
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+.form-group { display: flex; flex-direction: column; gap: 0.3rem; }
+
+.form-group label {
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--grid-line);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  color: var(--dark);
+  background: var(--surface);
+  transition: border-color var(--duration);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(27,58,92,0.1);
+}
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: var(--text-small);
+  color: var(--gray-light);
+  border-top: 1px solid var(--grid-line);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .competencies-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    padding: 1rem 1.5rem;
+    box-shadow: var(--shadow-md);
+    gap: 0.75rem;
+  }
+  .nav-links.open a { color: var(--dark) !important; }
+  .nav-toggle { display: block; }
+
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-badges { justify-content: center; }
+  .hero-ctas { justify-content: center; }
+  .hero-photo { order: -1; margin-bottom: 1.5rem; }
+  .hero-photo img { width: 200px; height: 200px; }
+
+  .stats { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .competencies-grid { grid-template-columns: 1fr; }
+  .credentials-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+
+  .timeline::before { left: 1rem; }
+  .timeline-dot { left: 1rem; }
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    padding-left: 3rem;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.2rem; }
+}
+
+/* ===== ANIMATION PREP ===== */
+.fade-up { opacity: 0; transform: translateY(30px); }
+.fade-left { opacity: 0; transform: translateX(-40px); }
+.fade-right { opacity: 0; transform: translateX(40px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .fade-left, .fade-right { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
 </style>
 </head>
 <body>
-<p>This site is no longer available.</p>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">Sameena Gill</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#competencies">Skills</a></li>
+      <li><a href="#timeline">Career</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <div class="hero-badges fade-left">
+        <span class="hero-badge">PE</span>
+        <span class="hero-badge">MBA</span>
+        <span class="hero-badge">Lean Six Sigma</span>
+      </div>
+      <h1 class="fade-left">Sameena Gill</h1>
+      <p class="hero-tagline fade-left">Technical Project Manager</p>
+      <p class="hero-tagline fade-left" style="margin-bottom:0.4rem">Mission-Critical Infrastructure &amp; Facility Construction</p>
+      <p class="hero-location fade-left">Bakersfield, CA</p>
+      <div class="hero-ctas fade-left">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="Sameena_Gill_Resume_NVIDIA.pdf" download class="btn btn-outline">Download Resume</a>
+      </div>
+    </div>
+    <div class="hero-photo fade-right">
+      <img src="sameena.jpg" alt="Sameena Gill, PE, MBA" width="300" height="300" loading="eager" fetchpriority="high">
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <span class="section-label fade-up">About</span>
+    <h2 class="section-title fade-up" id="about-heading">Building What Matters</h2>
+    <div class="section-divider fade-up"></div>
+    <p class="about-summary fade-up">
+      Technical Project Manager and California-licensed Professional Civil Engineer with a decade of experience leading capital construction and infrastructure projects within mission-critical, uninterruptible facilities. Direct experience with the mechanical, electrical, and backup-power systems that keep critical facilities operational: HVAC/cooling system rehabilitation, standby generators, and solar power generation. Skilled Owner's Representative managing multidisciplinary teams of architects, engineers, MEP consultants, contractors, and executive stakeholders across annual capital programs exceeding $25M.
+    </p>
+    <div class="stats">
+      <div class="stat-card fade-up">
+        <div class="stat-number" data-count="25" data-prefix="$" data-suffix="M+">$0M+</div>
+        <div class="stat-label">Capital Programs Managed</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-number" data-count="10" data-prefix="" data-suffix="+">0+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-number" data-count-text="Zero">Zero</div>
+        <div class="stat-label">Recordable Safety Incidents</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects" aria-labelledby="projects-heading">
+  <div class="container">
+    <span class="section-label fade-up">Portfolio</span>
+    <h2 class="section-title fade-up" id="projects-heading">Featured Projects</h2>
+    <div class="section-divider fade-up"></div>
+    <div class="projects-grid">
+      <div class="project-card fade-up">
+        <span class="project-role">Owner's Representative</span>
+        <div class="project-metric">$10M</div>
+        <div class="project-name">Commercial Facility Build &amp; Fit-Out</div>
+        <p class="project-desc">35,000+ SF commercial warehouse on a 5+ acre site — new construction combined with interior fit-out of an existing building. Coordinated 20+ contractors across all disciplines.</p>
+      </div>
+      <div class="project-card fade-up">
+        <span class="project-role">Capital Construction PM</span>
+        <div class="project-metric">$25M+</div>
+        <div class="project-name">Municipal Water Capital Program</div>
+        <p class="project-desc">Annual capital improvement program overseeing 5+ concurrent water infrastructure projects from planning through construction completion within active operating facilities.</p>
+      </div>
+      <div class="project-card fade-up">
+        <span class="project-role">Capital Construction PM</span>
+        <div class="project-metric">32 MGD</div>
+        <div class="project-name">Wastewater Treatment Plant Rehab</div>
+        <p class="project-desc">Multimillion-dollar rehabilitation of an activated sludge treatment plant including HVAC/cooling upgrades and backup generator integration — zero operational downtime.</p>
+      </div>
+      <div class="project-card fade-up">
+        <span class="project-role">Project Manager</span>
+        <div class="project-metric">Solar</div>
+        <div class="project-name">WaterSmart &amp; Renewable Energy</div>
+        <p class="project-desc">Advanced metering project reducing water loss across residential sites, plus well rehabilitation powered by on-site solar array with renewable energy integration.</p>
+      </div>
+      <div class="project-card fade-up">
+        <span class="project-role">Senior Engineer</span>
+        <div class="project-metric">$3M</div>
+        <div class="project-name">Critical Pipeline Rehabilitation</div>
+        <p class="project-desc">Pipeline inspection and rehabilitation for agricultural water transmission — maintained uninterrupted delivery through temporary bypass strategies and phased sequencing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETENCIES -->
+<section class="competencies" id="competencies" aria-labelledby="competencies-heading">
+  <div class="container">
+    <span class="section-label fade-up">Expertise</span>
+    <h2 class="section-title fade-up" id="competencies-heading">Core Competencies</h2>
+    <div class="section-divider fade-up"></div>
+    <div class="competencies-grid">
+      <div class="competency-group fade-up">
+        <h3>Construction Management</h3>
+        <div class="competency-tags">
+          <span class="competency-tag">Capital Construction</span>
+          <span class="competency-tag">Fit-Out</span>
+          <span class="competency-tag">Scheduling</span>
+          <span class="competency-tag">Critical Path</span>
+          <span class="competency-tag">Pull Planning</span>
+          <span class="competency-tag">Look-Ahead</span>
+          <span class="competency-tag">Commissioning</span>
+        </div>
+      </div>
+      <div class="competency-group fade-up">
+        <h3>MEP &amp; Systems</h3>
+        <div class="competency-tags">
+          <span class="competency-tag">MEP Coordination</span>
+          <span class="competency-tag">HVAC &amp; Cooling</span>
+          <span class="competency-tag">Backup Power</span>
+          <span class="competency-tag">Generators</span>
+          <span class="competency-tag">Renewable Energy</span>
+          <span class="competency-tag">Solar</span>
+        </div>
+      </div>
+      <div class="competency-group fade-up">
+        <h3>Project Controls</h3>
+        <div class="competency-tags">
+          <span class="competency-tag">Budget &amp; Cost Control</span>
+          <span class="competency-tag">Risk Management</span>
+          <span class="competency-tag">Change Orders</span>
+          <span class="competency-tag">RFIs</span>
+          <span class="competency-tag">Submittals</span>
+          <span class="competency-tag">QA/QC</span>
+        </div>
+      </div>
+      <div class="competency-group fade-up">
+        <h3>Leadership &amp; Tools</h3>
+        <div class="competency-tags">
+          <span class="competency-tag">Owner's Rep</span>
+          <span class="competency-tag">Cross-Functional Teams</span>
+          <span class="competency-tag">Executive Reporting</span>
+          <span class="competency-tag">Procore</span>
+          <span class="competency-tag">MS Project</span>
+          <span class="competency-tag">AutoCAD</span>
+          <span class="competency-tag">Bluebeam</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section" id="timeline" aria-labelledby="timeline-heading">
+  <div class="container">
+    <span class="section-label fade-up">Experience</span>
+    <h2 class="section-title fade-up" id="timeline-heading">Career Timeline</h2>
+    <div class="section-divider fade-up"></div>
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Jul 2025 — Present</div>
+          <div class="timeline-role">Construction PM / Owner's Rep</div>
+          <div class="timeline-company">Reliable Tire Depot</div>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Aug 2024 — Jul 2025</div>
+          <div class="timeline-role">Senior Engineer / Capital PM</div>
+          <div class="timeline-company">Westside Water Authority</div>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Feb 2023 — Aug 2024</div>
+          <div class="timeline-role">Civil Engineer III / Water PM</div>
+          <div class="timeline-company">City of Bakersfield</div>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Sep 2019 — Feb 2023</div>
+          <div class="timeline-role">Engineer III / Wastewater PM</div>
+          <div class="timeline-company">City of Bakersfield</div>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Jan 2017 — Sep 2019</div>
+          <div class="timeline-role">Engineer I / II</div>
+          <div class="timeline-company">City of Bakersfield</div>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Nov 2016 — Dec 2016</div>
+          <div class="timeline-role">Staff Engineer</div>
+          <div class="timeline-company">Brown and Caldwell</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="education" aria-labelledby="education-heading">
+  <div class="container">
+    <span class="section-label fade-up">Credentials</span>
+    <h2 class="section-title fade-up" id="education-heading">Education &amp; License</h2>
+    <div class="section-divider fade-up"></div>
+    <div class="credentials-grid">
+      <div class="credential-card fade-up">
+        <div class="credential-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div>
+        <div class="credential-name">MBA</div>
+        <div class="credential-detail">Project Management — 2024</div>
+      </div>
+      <div class="credential-card fade-up">
+        <div class="credential-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div>
+        <div class="credential-name">M.S. Civil Engineering</div>
+        <div class="credential-detail">2016</div>
+      </div>
+      <div class="credential-card fade-up">
+        <div class="credential-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div>
+        <div class="credential-name">B.S. Civil Engineering</div>
+        <div class="credential-detail">2015</div>
+      </div>
+      <div class="credential-card fade-up">
+        <div class="credential-icon"><svg viewBox="0 0 24 24"><path d="M12 15l-2 5-1-3-3-1 5-2"/><path d="M18 6l-2.5 2.5"/><circle cx="18" cy="5" r="3"/><path d="M9.5 12.5L5 17"/></svg></div>
+        <div class="credential-name">California PE</div>
+        <div class="credential-detail">Professional Civil Engineer</div>
+      </div>
+      <div class="credential-card fade-up">
+        <div class="credential-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="credential-name">Lean Six Sigma</div>
+        <div class="credential-detail">Process Improvement</div>
+      </div>
+      <div class="credential-card fade-up">
+        <div class="credential-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="credential-name">OSHA Safety</div>
+        <div class="credential-detail">Safety Standards Training</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <span class="section-label fade-up">Get in Touch</span>
+    <h2 class="section-title fade-up" id="contact-heading">Let's Connect</h2>
+    <div class="section-divider fade-up"></div>
+    <div class="contact-grid">
+      <div class="fade-up">
+        <ul class="contact-info-list">
+          <li class="contact-info-item">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a id="email-link" href="#">[enable JavaScript to view]</a>
+          </li>
+          <li class="contact-info-item">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://linkedin.com/in/sameena-gill" target="_blank" rel="noopener">linkedin.com/in/sameena-gill</a>
+          </li>
+        </ul>
+        <a href="Sameena_Gill_Resume_NVIDIA.pdf" download class="btn btn-navy">Download Resume</a>
+      </div>
+      <form class="contact-form fade-up" id="contact-form">
+        <div class="form-group">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-navy" style="align-self:flex-start;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 Sameena Gill, PE, MBA. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- GSAP -->
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script>
+window.addEventListener('load', () => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // Obfuscated email — assembled at runtime so bots can't scrape it
+  const _u = 'sameenagill12';
+  const _d = 'gmail.com';
+  const _addr = _u + '@' + _d;
+  const emailLink = document.getElementById('email-link');
+  if (emailLink) {
+    emailLink.href = 'mailto:' + _addr;
+    emailLink.textContent = _addr;
+  }
+
+  // Contact form → mailto
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.querySelector('#cf-name').value;
+    const email = form.querySelector('#cf-email').value;
+    const message = form.querySelector('#cf-message').value;
+    const subject = encodeURIComponent('Portfolio Contact from ' + name);
+    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+    window.location.href = 'mailto:' + _addr + '?subject=' + subject + '&body=' + body;
+  });
+
+  // Mobile toggle
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => links.classList.remove('open'))
+  );
+
+  if (prefersReduced) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero entrance
+  gsap.utils.toArray('.hero .fade-left').forEach((el, i) => {
+    gsap.fromTo(el,
+      { opacity: 0, x: -40 },
+      { opacity: 1, x: 0, duration: 0.8, delay: 0.2 + i * 0.1, ease: 'power3.out' }
+    );
+  });
+
+  gsap.fromTo('.hero .fade-right',
+    { opacity: 0, x: 40 },
+    { opacity: 1, x: 0, duration: 1, delay: 0.4, ease: 'power3.out' }
+  );
+
+  // Scroll fade-ups
+  gsap.utils.toArray('section .fade-up').forEach(el => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+      }
+    );
+  });
+
+  // Stat counters
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.dataset.count);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      onEnter: () => {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 1.5,
+          ease: 'power2.out',
+          onUpdate: () => { el.textContent = prefix + Math.round(obj.val) + suffix; }
+        });
+      },
+      once: true
+    });
+  });
+
+  // Project cards stagger
+  ScrollTrigger.batch('.project-card', {
+    onEnter: batch => {
+      gsap.fromTo(batch,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.12, ease: 'power3.out' }
+      );
+    },
+    start: 'top 88%',
+    once: true
+  });
+});
+</script>
 </body>
 </html>

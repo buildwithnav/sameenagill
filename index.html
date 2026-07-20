@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sameena Gill, PE, MBA — Technical Project Manager</title>
 <meta name="description" content="Technical Project Manager specializing in mission-critical infrastructure, data center and facility construction. California PE, MBA, 10+ years experience.">
+<meta name="robots" content="noarchive">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231B3A5C'/><text x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='bold' fill='white' text-anchor='middle'>SG</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -976,11 +979,7 @@ section { padding: var(--space-section) 0; }
         <ul class="contact-info-list">
           <li class="contact-info-item">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:sameenagill12@gmail.com">sameenagill12@gmail.com</a>
-          </li>
-          <li class="contact-info-item">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg>
-            <a href="tel:+14246037040">424-603-7040</a>
+            <a id="email-link" href="#">[enable JavaScript to view]</a>
           </li>
           <li class="contact-info-item">
             <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -1027,6 +1026,16 @@ window.addEventListener('load', () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
 
+  // Obfuscated email — assembled at runtime so bots can't scrape it
+  const _u = 'sameenagill12';
+  const _d = 'gmail.com';
+  const _addr = _u + '@' + _d;
+  const emailLink = document.getElementById('email-link');
+  if (emailLink) {
+    emailLink.href = 'mailto:' + _addr;
+    emailLink.textContent = _addr;
+  }
+
   // Contact form → mailto
   const form = document.getElementById('contact-form');
   form.addEventListener('submit', (e) => {
@@ -1036,7 +1045,7 @@ window.addEventListener('load', () => {
     const message = form.querySelector('#cf-message').value;
     const subject = encodeURIComponent('Portfolio Contact from ' + name);
     const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
-    window.location.href = 'mailto:sameenagill12@gmail.com?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:' + _addr + '?subject=' + subject + '&body=' + body;
   });
 
   // Mobile toggle
